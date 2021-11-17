@@ -4,11 +4,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View, Text, ScrollView, Image } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-import { SCREEN1, SCREEN2, COMPONENT1 } from "../navigation/constants";
+import { CHECKER, SCREEN2, COMPONENT1, TABLE } from "../navigation/constants";
 import cIndex from "../components";
-const { component1 } = cIndex;
+const { component1, Table } = cIndex;
 import sIndex from "../screens";
-const { screen1, screen2 } = sIndex;
+const { Checker, screen2 } = sIndex;
 
 import styles from "../styles";
 
@@ -22,10 +22,10 @@ const topHeaderLogo = () => {
   );
 };
 
-const Checker = () => {
+const CheckerStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName={SCREEN1}
+      initialRouteName={CHECKER}
       screenOptions={{
         headerStyle: { backgroundColor: "#006080" },
         headerTitle: topHeaderLogo,
@@ -33,12 +33,13 @@ const Checker = () => {
         headerTintColor: "white",
       }}
     >
-      <Stack.Screen name={SCREEN1} component={screen1} />
+      <Stack.Screen name={CHECKER} component={Checker} />
+      <Stack.Screen name={TABLE} component={Table} />
     </Stack.Navigator>
   );
 };
 
-const Solver = () => {
+const SolverStack = () => {
   return (
     <Stack.Navigator
       initialRouteName={SCREEN2}
@@ -78,8 +79,8 @@ export const TabNavigator = () => {
         tabBarStyle: { backgroundColor: "#006080" },
       })}
     >
-      <Tab.Screen name="Checker" component={Checker} />
-      <Tab.Screen name="Solver" component={Solver} />
+      <Tab.Screen name="Checker" component={CheckerStack} />
+      <Tab.Screen name="Solver" component={SolverStack} />
     </Tab.Navigator>
   );
 };
