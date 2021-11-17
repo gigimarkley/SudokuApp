@@ -4,7 +4,7 @@ import React from "react";
 const screen1 = () => {
   return (
     <View>
-      <Text>Screen 1!</Text>
+      <Text>Sudoku Checker!</Text>
     </View>
   );
 };
